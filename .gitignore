@@ -1,16 +1,84 @@
-# Compiled class file
-*.class
+######################
+# Project Specific
+######################
+/build/www/**
 
-# Log file
-*.log
+######################
+# Node
+######################
+/node/
+node_tmp/
+node_modules/
+npm-debug.log.*
 
-# BlueJ files
-*.ctxt
+######################
+# SASS
+######################
+.sass-cache/
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+######################
+# Intellij
+######################
+.idea/
+**/.idea/
+*.iml
+*.iws
+*.ipr
+*.ids
+*.orig
 
-# Package Files #
+######################
+# Eclipse
+######################
+*.pydevproject
+.project
+.metadata
+tmp/
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+.factorypath
+/src/main/resources/rebel.xml
+
+# External tool builders
+.externalToolBuilders/**
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# CDT-specific
+.cproject
+
+# PDT-specific
+.buildpath
+
+######################
+# Visual Studio Code
+######################
+.vscode/
+
+######################
+# Maven
+######################
+.flattened-pom.xml
+#not only root but anywhere target or log directory
+**/target/
+######################
+# Gradle
+######################
+.gradle/
+/build/
+
+######################
+# Package Files
+######################
+*.db
 *.jar
 *.war
 *.nar
@@ -19,5 +87,99 @@
 *.tar.gz
 *.rar
 
+######################
+# Windows
+######################
+# Windows image file caches
+Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+######################
+# Mac OSX
+######################
+.DS_Store
+.AppleDouble
+.LSOverride
+.svn
+
+# Thumbnails
+._*
+
+# Icon must end with two \r
+Icon
+
+# Files that might appear on external disk
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+######################
+# Directories
+######################
+#only top-directories
+/bin/
+/deploy/
+
+######################
+# Logs
+######################
+*.log
+**/logs
+!important.log
+
+######################
+# Others
+######################
+*.class
+*.*~
+*~
+.merge_file*
+
+######################
+# Gradle Wrapper
+######################
+!gradle/wrapper/gradle-wrapper.jar
+
+######################
+# Maven Wrapper
+######################
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+#!.mvn/wrapper/maven-wrapper.jar
+
+######################
+# ESLint
+######################
+.eslintcache
+
+######################
+# BlueJ files
+######################
+*.ctxt
+
+######################
+# Mobile Tools for Java (J2ME)
+######################
+.mtj.tmp/
+
+######################
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+######################
 hs_err_pid*
+replay_pid*
+
+######################
+#https://www.atlassian.com/git/tutorials/saving-changes/gitignore
