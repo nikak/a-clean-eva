@@ -183,3 +183,5 @@ replay_pid*
 
 ######################
 #https://www.atlassian.com/git/tutorials/saving-changes/gitignore
+#/src/acleaneva-io/autogen_ddl/
+/a-temp/

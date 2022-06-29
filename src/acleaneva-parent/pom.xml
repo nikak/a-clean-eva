@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>eu.nnn4.acleaneva</groupId>
+    <artifactId>acleaneva-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+
+    <name>Acleaneva Parent</name>
+
+    <!--    <parent>-->
+    <!--        <groupId>org.springframework.boot</groupId>-->
+    <!--        <artifactId>spring-boot-starter-parent</artifactId>-->
+    <!--        <version>2.6.3</version>-->
+    <!--        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
+    <!--    </parent>-->
+
+    <properties>
+        <!-- Char encoding -->
+        <project.encoding>UTF-8</project.encoding>
+        <project.build.sourceEncoding>${project.encoding}</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>${project.encoding}</project.reporting.outputEncoding>
+        <java.version>17</java.version>
+        <!-- Plugins -->
+        <maven.compiler.plugin.version>3.9.0</maven.compiler.plugin.version>
+        <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <!--        <maven.compiler.release>17</maven.compiler.release>-->
+
+        <!--        <acleaneva.startup.version>1.0-SNAPSHOT</acleaneva.startup.version>-->
+
+        <!-- Version of external dependencies -->
+        <springboot.version>2.6.3</springboot.version>
+        <bytebuddy.version>1.12.7</bytebuddy.version>
+
+        <jmolecules.version>2021.2.2</jmolecules.version>
+        <moduliths.version>1.3.0-M2</moduliths.version>
+        <hibernate-jpamodelgen.version>5.3.25.Final</hibernate-jpamodelgen.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>eu.nnn4.acleaneva</groupId>
+                <artifactId>acleaneva-domain</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>eu.nnn4.acleaneva</groupId>
+                <artifactId>acleaneva-io</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>eu.nnn4.acleaneva</groupId>
+                <artifactId>acleaneva-app</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>eu.nnn4.acleaneva</groupId>
+                <artifactId>acleaneva-common</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+
+            <!--JSR 380 spec, standard validation APIs-->
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>2.0.1.Final</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${springboot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jmolecules</groupId>
+                <artifactId>jmolecules-bom</artifactId>
+                <version>${jmolecules.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.moduliths</groupId>
+                <artifactId>moduliths-events-starter</artifactId>
+                <version>${moduliths.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-jpamodelgen</artifactId>
+                <version>${hibernate-jpamodelgen.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.joda</groupId>
+                <artifactId>joda-money</artifactId>
+                <version>1.0.1</version>
+            </dependency>
+
+            <!--            <dependency>-->
+            <!--                <groupId>com.github.stefanbirkner</groupId>-->
+            <!--                <artifactId>system-rules</artifactId>-->
+            <!--                <version>1.19.0</version>-->
+            <!--                <scope>test</scope>-->
+            <!--            </dependency>-->
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <!-- Compiler -->
+            <!--            <plugin>-->
+            <!--                <groupId>org.apache.maven.plugins</groupId>-->
+            <!--                <artifactId>maven-compiler-plugin</artifactId>-->
+            <!--                <version>${mavenCompilerPlugin.version}</version>-->
+            <!--                <configuration>-->
+            <!--                    <source>${java.version}</source>-->
+            <!--                    <target>${java.version}</target>-->
+            <!--                    <encoding>${project.build.sourceEncoding}</encoding>-->
+            <!--                    <verbose>false</verbose>-->
+            <!--                    <optimize>true</optimize>-->
+            <!--                    <showDeprecation>true</showDeprecation>-->
+            <!--                    <showWarnings>true</showWarnings>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+                <configuration>
+                    <!--                    <release>${maven.compiler.release}</release>-->
+                    <target>${maven.compiler.target}</target>
+                    <source>${maven.compiler.source}</source>
+                    <compilerArguments>
+                        <!--                        <processor>org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor</processor>-->
+                        <!--                        <compilerArgument>-proc:none</compilerArgument>-->
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+
+            <!--<plugin>
+                <groupId>net.bytebuddy</groupId>
+                <artifactId>byte-buddy-maven-plugin</artifactId>
+                <version>${bytebuddy.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>transform</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.jmolecules.integrations</groupId>
+                        <artifactId>jmolecules-bytebuddy</artifactId>
+                        <version>0.7.0</version>
+                    </dependency>
+                </dependencies>
+            </plugin>-->
+        </plugins>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>${maven-clean-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>auto-clean</id>
+                            <phase>initialize</phase>
+                            <goals>
+                                <goal>clean</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <!-- Deploy the artifact to a project local repository -->
+    <distributionManagement>
+        <repository>
+            <id>local-repo</id>
+            <name>Local Repository</name>
+            <url>file://${project.build.directory}/localrepo</url>
+            <layout>default</layout>
+            <uniqueVersion>false</uniqueVersion>
+        </repository>
+    </distributionManagement>
+</project>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>acleaneva-parent</artifactId>
+        <groupId>eu.nnn4.acleaneva</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../acleaneva-parent/pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>acleaneva-io</artifactId>
+    <name>Acleaneva IO</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>eu.nnn4.acleaneva</groupId>
+            <artifactId>acleaneva-domain</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>eu.nnn4.acleaneva</groupId>
+            <artifactId>acleaneva-app</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>eu.nnn4.acleaneva</groupId>
+            <artifactId>acleaneva-common</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--        <dependency>-->
+        <!--            <groupId>org.jmolecules</groupId>-->
+        <!--            <artifactId>jmolecules-layered-architecture</artifactId>-->
+        <!--        </dependency>-->
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-jpamodelgen</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <!--    <properties>-->
+    <!--        <maven.compiler.source>17</maven.compiler.source>-->
+    <!--        <maven.compiler.target>17</maven.compiler.target>-->
+    <!--    </properties>-->
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-help-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <id>show-profiles</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>active-profiles</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>flyway</id>
+            <activation>
+                <property>
+                    <name>spring.flyway.enabled</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.flywaydb</groupId>
+                        <artifactId>flyway-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>migrate</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <!--                <configuration>-->
+                        <!--                    <driver>org.postgresql.Driver</driver>-->
+                        <!--                    <url>jdbc:postgresql://localhost:5432/test</url>-->
+                        <!--                    <user>postgres</user>-->
+                        <!--                    <password>root</password>-->
+                        <!--                    <baselineOnMigrate>true</baselineOnMigrate>-->
+                        <!--                    <schemas>public</schemas>-->
+                        <!--                    <locations>-->
+                        <!--                        <location>filesystem:src/main/resources/db/migration</location>-->
+                        <!--                    </locations>-->
+                        <!--                </configuration>-->
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+
+    </profiles>
+</project>
