@@ -1,6 +1,6 @@
 # a-clean-eva
 
-1 Init
+A. Init
 
 1. mvn -N io.takari:maven:wrapper, .gitignore
 2. Modules
